@@ -58,8 +58,6 @@ jobs:
           Expand-Archive .\transfer.zip
           .\transfer\transfer.exe cow --block 2621440 -s -p 64 --no-progress (Get-Item bin/release/*.7z).FullName >> cowtransfer.log
           echo "::warning file=cowtransfer.com::$(cat .\cowtransfer.log)"
-          $text=$(Select-String .\cowtransfer.log -Pattern "https")
-          ${{ secrets.TELEGRAM }}
         shell: powershell
       -
         name: GitHub Release
